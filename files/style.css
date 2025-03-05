@@ -1884,9 +1884,9 @@ a:focus {
   -ms-border-radius: 50%;
   border-radius: 50%;
   opacity: 0;
-  -webkit-transition: 1s 2.3s ease-in-out;
-  -o-transition: 1s 2.3s ease-in-out;
-  transition: 1s 2.3s ease-in-out;
+  -webkit-transition: 0.5s 1.0s ease-in-out;
+  -o-transition: 0.5s 1.3s ease-in-out;
+  transition: 0.5s 1.3s ease-in-out;
 }
 
 @media (max-width: 1199px) {
@@ -4162,6 +4162,153 @@ a:focus {
     height: auto; /* Maintains aspect ratio */
     display: block; /* Removes extra space below the image */
 }
+
+/* -------------------------------------------------- */ 
+/* 17. Bridsmaid & Groosman
+/* -------------------------------------------------- */ 
+
+/* 17.1. Bridsmaid & Groosman Header
+------------------------------------ */
+
+#bridsmaid-groosman-header  {
+    padding: 200px 0 20px 0;
+    background-color: transparent;
+}
+@media (max-width: 767px) {
+    #bridsmaid-groosman-header {
+        padding: 200px 0 40px 0;
+    }
+} 
+#bridsmaid-groosman-header .headline {
+    font-family: Great Vibes;
+    font-size: 45px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 0px;
+}
+#bridsmaid-groosman-header .subtitle {
+    font-size: 18px;
+}
+#bridsmaid-groosman-header .spacer {
+    width: 60px;
+    border-top: 1px solid #c0b079;
+    margin-top: 10px;
+}
+@media (max-width: 767px) {
+    #bridsmaid-groosman-header .headline {
+        font-size: 35px;  
+        padding-top: 10px;
+    }
+}
+
+/* 17.2. Bridsmaid & Groosman Content
+------------------------------------ */
+
+#bridsmaid-groosman-content {
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+#bridsmaid-groosman-content.onepage .thumbnail {
+    /*background-color: #f9f9f9 !important;*/
+}
+@media (max-width: 767px) {
+    #bridsmaid-groosman-content {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+}
+#bridsmaid-groosman-content .thumbnail a>img,
+#bridsmaid-groosman-content .thumbnail>img {
+    width: 250px;
+    height: 250px;
+    border: 5px solid #fff;
+    box-shadow: 0 4px 6px 0 #ccc;
+}
+#bridsmaid-groosman-content .fa-stack {
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+}
+#bridsmaid-groosman-content .social-network-square li a.smallicon {
+    width: 35px;
+    font-size: 10px;
+}
+#bridsmaid-groosman-content .subtitle {
+    font-size: 16px;
+}
+#bridsmaid-groosman-content .thumbnail {
+    /*background-color: #f9f9f9;*/
+    border: 1px solid transparent;
+    padding-top: 30px;
+    margin-bottom: 30px;
+}
+#bridsmaid-groosman-content .thumbnail .caption {
+    padding: 9px;
+    color: #333;
+}
+#bridsmaid-groosman-content .thumbnail .caption p {
+    color: #949494;
+}
+#bridsmaid-groosman-content h3 {
+    font-size: 19px;
+    text-transform: initial;
+}
+#bridsmaid-groosman-content .subtitle {
+    font-size: 16px;
+}
+#bridsmaid-groosman-content .strike > span {
+    padding: 20px 0 20px 0;
+}
+
+/* 17.3. Bridsmaid & Groosman one Page (one-page.html)
+------------------------------------ */
+
+#bridsmaid-groosman-header.onepage {
+    padding: 55px 0 20px 0;
+}
+@media (max-width: 767px) {
+    #bridsmaid-groosman-header.onepage {
+        padding: 0;
+    }
+}
+#reserve-image-background .about-section-wraper.onepage {
+    color: #fff;
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+#gift-registry.onepage {
+       padding: 40px 0 25px 0;  
+}
+#gift-registry-image .section-wraper {
+    color: #ffffff;
+    padding-top: 350px;
+    padding-bottom: 200px;
+}
+#gift-registry-image h1 {
+    font-size: 45px;
+    font-weight: 400;
+    font-family: Josefin Slab,Arial,sans-serif;
+    text-transform: uppercase;
+}
+#gift-registry-image p {
+    color: #ffffff;
+}
+#gift-registry-image hr {
+    margin-top: 0px;
+    width: 40px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 2px solid #eee;
+}
+@media (max-width: 767px) {
+    #gift-registry.onepage {
+        padding: 0;
+    }
+}
+#portfolio.onepage {
+    margin-bottom: 80px;
+}
+
 
 
 /*# sourceMappingURL=style.css.map 

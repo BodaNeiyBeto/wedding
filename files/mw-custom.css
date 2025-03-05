@@ -1,3 +1,4 @@
+/*
 :root {
 
     --page-gap: 1%;
@@ -59,6 +60,61 @@
     --nav-font-color: #fff;
     --nav-font-hover-color: #d8a077;
 }
+*/
+
+/* New */
+
+:root {
+    --page-gap: 1%;
+    --section-gap: 20px;
+    --font-family: 'Quicksand', sans-serif;
+    --secondary-font-family: 'Baskervville', serif;
+    --extra-font-family: 'Baskervville', serif;
+    --body-font-family: 'Baskervville', serif;
+    --cursive-font-family: 'Quicksand', sans-serif;
+    --main-color: #9A7A54;
+    --secondary-color: rgb(148, 106, 90);
+    --third-color: #C1AE90;
+    --fourth-color: #F2F5EE;
+    --fifth-color: #ffffff;
+    --dark-color: rgb(48, 48, 48);
+    --light-color: #818181;
+    --light-bg-color: #f7f7f7;
+    --light-border-color: rgba(0, 0, 0, 0.1);
+    --body-font-color: rgb(48, 48, 48);
+    --body-font-size: 18px;
+    --body-line-height: 2em;
+    --navlink-bg-color: rgba(255, 255, 255, 0.8);
+    --navlink-hover-bg-color: rgba(0, 0, 0, 0.05);
+    --navlink-box-shadow: 0px 0px 10px 2px #e3e3e387;
+    --btn-border-width: 2px;
+    --btn-border-style: solid;
+    --btn-dark-background-color: rgb(205, 188, 162);
+    --btn-dark-hover-background-color: #4e4b34;
+    --btn-light-background-color: rgba(0, 0, 0, 0);
+    --btn-light-hover-background-color: rgba(255, 255, 255, 0.2);
+    --btn-dark-border-color: rgba(0, 0, 0, 0.1);
+    --btn-light-border-color: rgba(255, 255, 255, 0.2);
+    --round-btn-tabs-border: 1000px;
+    --titles-bg-color: rgba(255, 255, 255, 0);
+    --titles-border-color: rgba(0, 0, 0, 0.1);
+    --titles-border-width: 2px;
+    --titles-font-color: #4e4b34;
+    --titles-font-size: 38px;
+    --titles-font-rem-size: 2rem;
+    --light-box-shadow: 0px 0px 10px 2px #eaeaea67;
+    --dark-box-shadow: 0px 0px 10px 2px #888888;
+    --location-border-width: 2px 0;
+    --location-border-style: solid;
+    --nav-bg-color: #946A5A;
+    --nav-top-border-color: #C1AE90;
+    --nav-top-border-width: 5px;
+    --nav-bottom-border-color: #c6bea9;
+    --nav-bottom-border-width: 5px;
+    --nav-font-color: #fff;
+    --nav-font-hover-color: #c6bea9;
+}
+
 
 /*------------------ General ---------------------*/
 
@@ -632,11 +688,11 @@ a {
 /*------------------ Slider ---------------------*/
 
 .hero .wedding-announcement .save-the-date:after {
-    background-color: rgba(123,32,58,0.7);
+    background-color: rgba(148, 106, 90,0.7);
 }
 
 .hero .wedding-announcement .save-the-date:before {
-    background-color: rgba(123,32,58,0.3);
+    background-color: rgba(148, 106, 90,0.3);
 }
 
 .hero .wedding-announcement .couple-name-merried-text {
@@ -759,7 +815,7 @@ a {
   width: 148px !important;
   height: 148px !important;
   color: var(--main-color);
-  background: rgba(123,32,58,0.6) !important;
+  background: rgba(251,241,227,0.6) !important;
   margin: 5px !important;
 }
 
