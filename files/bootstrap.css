@@ -201,10 +201,20 @@ textarea {
 }
 
 [type="checkbox"],
-[type="radio"] {
+/*[type="radio"]*/ {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 0;
+  padding: 1;
+}
+
+[type="radio" i] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 0px 5px;
+    padding: initial;
+    border: initial;
 }
 
 [type="number"]::-webkit-inner-spin-button,
