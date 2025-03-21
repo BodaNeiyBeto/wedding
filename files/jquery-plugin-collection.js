@@ -6,7 +6,7 @@
  *  jQuery appear plugin
  *  jQuery fancyBox
  *	Masonry PACKAGED
- *	Owl carousel
+ *	
  *	Simple JavaScript Inheritance
  *	jquery countdown
  *  jquery easein

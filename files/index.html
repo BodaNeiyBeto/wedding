@@ -45,105 +45,44 @@
   <body ng-app="reservaciones" class="ng-scope">
     <div ng-controller="ReservacionesController" class="card col-md-10 mx-auto ng-scope">
       
-      
+
       <form id="formConfirmacion" name="formConfirmacion" ng-show="formVisibility == &#39;0&#39;" class="fade code-input ng-pristine ng-invalid ng-invalid-required">
-        <div class="card-header" align="center">Confirmación</div>
+        <div class="card-header" align="center">Confirmación de Invitados</div>
         <div class="card-instruction-lg" align="center">Ingresa tu código de invitado<br>y da clic en buscar</div>
         <br>
-        <br>
         <div class="card-body col-md-12" align="center">
-          <input type="text" id="guestCode" placeholder="código..." ng-model="data.Nombre" ng-change="changeActive(0)" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
+          <input type="text" id="grupoInput" placeholder="código..." ng-model="data.Nombre" ng-change="changeActive(0)" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"/>
+          
+        <div id="errorMsg" style="color:red; margin-top:10px;"></div>
+
         </div>
         <div class="card-footer col-md-12 padding-top-30" align="right">
-          <!--<button onclick="checkGuest()" class="btn btn-primary" >Buscar</button>-->
-          <button type="submit" id="btnBuscar" class="btn btn-primary" ng-click="cambiar(1, &#39;f&#39;)" ng-disabled="!btnActive" disabled="disabled" onclick="checkGuest()">Buscar</button>
+          <button type="submit" id="btnBuscar" class="btn btn-primary" ng-click="cambiar(1, &#39;f&#39;)" ng-disabled="!btnActive" disabled="disabled" onclick="searchGrupo()">Buscar</button>
         </div>
-
+        
       </form>
       
+      
       <form id="formConfirmacion" name="formConfirmacion" ng-show="formVisibility == &#39;1&#39;" class="fade mobile-800-h ng-pristine ng-valid ng-hide">
-        <div class="card-header" align="center">Bienvenido, <span id="guestName"></span>!</div>
+        <div class="card-header" align="center">Bienvenido(s)!</div>
         <br>
         <div class="mobile-wrap" style="display: flex; justify-content: space-evenly">
-        <div id="guestInfo">
-        <p id="statusMessage"></p>
-        
+        <div id="guestList"  class="hidden">
+
+          <p>Su código es <span id="grupoNumber"></span>. Por favor, indica quiénes asistirán y qué menú prefieren:</p>
+          
               <div class="row col-md-12">
-                <div class="col-md-6 col-sm-6">
-                  <p class="total ng-binding"><strong>Pases adultos:</strong> <span id="numAdults"></span></p>
-                </div>
-                <div class="col-md-6 col-sm-6">
-                  <p class="total ng-binding"><strong>Pases niños:</strong> <span id="numChildren"></span></p>
-                </div>
-              </div>        
-        
-<!--        <p><strong>Adultos:</strong> <span id="numAdults"></span></p>
-        <p><strong>Niños:</strong> <span id="numChildren"></span></p>-->
-
-        <div class="checkbox-group">
+                    <div id="guestsContainer"></div>
+              </div> 
           
-                <div class="row col-md-12">
-                <div class="col-md-6 col-sm-6">
-                  <p class="total"><strong>Modificar no. de adultos?:</strong></p>
-<!--                  <p class="ng-binding"><input type="radio" name="adults" value="yes" onchange="toggleInput('adults')"> Sí</p>
-                  <p class="total"><input type="radio" name="adults" value="no" checked onchange="toggleInput('adults')"> No</p>-->
-                  
-                  <div class="row col-md-12">
-                    <div class="col-md-6 col-sm-6">
-                      <p class="ng-binding"><input type="radio" name="adults" value="yes" onchange="toggleInput('adults')"> Sí</p>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                      <p class="total"><input type="radio" name="adults" value="no" checked onchange="toggleInput('adults')"> No</p>
-                    </div>
-                  </div>
-                  
-                  <input type="number" id="adultsCount" class="hidden" min="0" disabled>
-                </div>
-                <div class="col-md-6 col-sm-6">
-                  <p class="total ng-binding"><strong>Modificar no. de niños?</strong></p>
-<!--                  <p class="total ng-binding"><input type="radio" name="children" value="yes" onchange="toggleInput('children')"> Sí</p>
-                  <p class="total ng-binding"><input type="radio" name="children" value="no" checked onchange="toggleInput('children')"> No</p>-->
-                  
-                  <div class="row col-md-12">
-                    <div class="col-md-6 col-sm-6">
-                      <p class="total ng-binding"><input type="radio" name="children" value="yes" onchange="toggleInput('children')"> Sí</p>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                      <p class="total ng-binding"><input type="radio" name="children" value="no" checked onchange="toggleInput('children')"> No</p>
-                    </div>
-                  </div>  
-                  
-                  <input type="number" id="childrenCount" class="hidden" min="0" disabled>
-                </div>
-              </div>
-            </div>
-          
-          
-<!--        <div class="checkbox-group">    
-            <label>Modificar No. de Adultos?:</label>
-            <label><input type="radio" name="adults" value="yes" onchange="toggleInput('adults')"> Sí</label>
-            <label><input type="radio" name="adults" value="no" checked onchange="toggleInput('adults')"> No</label>
-            
-        </div>
-        <input type="number" id="adultsCount" class="hidden" min="0" disabled>
-
-        <div class="checkbox-group">
-            <label>Niños:</label>
-            <label><input type="radio" name="children" value="yes" onchange="toggleInput('children')"> Sí</label>
-            <label><input type="radio" name="children" value="no" checked onchange="toggleInput('children')"> No</label>
-        </div>
-        <input type="number" id="childrenCount" class="hidden" min="0" disabled>-->
-
-<!--        <button onclick="showConfirmation()">Continuar</button>-->
     </div>
   
-<!--          <div class="couple-message" style="text-align: center; background: rgba(0, 0, 0, 0.2); padding: 2%">
-            <p class="ng-binding"></p>
-          </div>
--->        </div>
+    </div>
+    
+    
         <div class="card-footer row col-md-12">
           <button type="submit" id="btnBack" class="btn btn-primary" ng-click="cambiar(0, &#39;b&#39;)">Regresar</button>
-          <button type="submit" id="btnResumen" class="btn btn-primary mobile-top-10"  onclick="showConfirmation()" ng-click="cambiar(2, &#39;f&#39;)">Continuar</button>
+          <button type="submit" id="btnResumen" class="btn btn-primary mobile-top-10"  onclick="goToReview()" ng-click="cambiar(2, &#39;f&#39;)">Continuar</button>
         </div>
       </form>
       
@@ -151,52 +90,28 @@
       <form id="formConfirmacion" name="formConfirmacion" ng-show="formVisibility == &#39;2&#39;" class="fade mobile-800-h ng-pristine ng-valid ng-hide">
         <div class="card-header" align="center">Corrobore su asistencia</div>
         <div class="mobile-wrap" style="display: flex; justify-content: space-evenly">
-<!--          <div class="total-tickets">
-            <div class="mobile-only" style="margin-bottom: 20px"></div>
-            <hr>
-            <div class="card-body" align="center" style="padding: 2%">
-              <div class="row col-md-12">
-                <div class="col-md-6 col-sm-6">
-                  <h6>Adultos</h6>
-                  <p class="total ng-binding"> PASES</p>
-                </div>
-                <div class="col-md-6 col-sm-6">
-                  <h6 class="mobile-top-20">Niños</h6>
-                  <p class="total ng-binding"> PASES</p>
-                </div>
-              </div>
+            <div id="reviewSection" class="hidden">
+                  <div id="reviewContainer"></div>
+                  <textarea id="mensajeGeneral" placeholder="Puede escribir un mensaje si lo desea (opcional)" ng-model="contenedor.Mensaje" class="ng-pristine ng-untouched ng-valid ng-empty">
+        </textarea>
             </div>
-          </div>
--->          
-            <div id="confirmation">
-<!--        <h3>Corrobore su asistencia</h3>-->
-
-        <!--<p><strong>Adultos confirmados:</strong> <span id="confirmAdults"></span></p>
-        <p><strong>Niños confirmados:</strong> <span id="confirmChildren"></span></p>-->
-        
-        <div class="row col-md-12">
-          <div class="col-md-6 col-sm-6">
-            <p><strong>Adultos confirmados:</strong> <span id="confirmAdults"></span></p>
-          </div>
-          <div class="col-md-6 col-sm-6">
-            <p><strong>Niños confirmados:</strong> <span id="confirmChildren"></span></p>
-          </div>
-        </div>  
               
-        <textarea id="message" placeholder="Puede escribir un mensaje si lo desea (opcional)" ng-model="contenedor.Mensaje" class="ng-pristine ng-untouched ng-valid ng-empty"></textarea>
-<!--        <button onclick="confirmAttendance()">Confirmar</button>-->
+
     </div>
         
-        </div>
         <div class="card-footer row col-md-12">
           <button type="submit" id="btnBack" class="btn btn-primary" ng-click="cambiar(1, &#39;b&#39;)">Regresar</button>
-          <!--<button type="submit" id="btnResumen" class="btn btn-primary mobile-top-10" ng-click="cambiar(3, &#39;f&#39;)">Continuar</button>-->
-          <button type="submit" id="btnResumen" class="btn btn-primary mobile-top-10" onclick="confirmAttendance()">Confirmar</button>
+          <button type="submit" id="btnResumen" class="btn btn-primary mobile-top-10" onclick="submitConfirmation()">Confirmar</button>
         </div>
         
       </form>
+
       
-        <script>
+       </div>
+      
+      
+      
+        <!--<script>
         const API_URL = "https://script.google.com/macros/s/AKfycbwLVdAktKPdALJybM6cVIK4hCy0NOyTwoIjBeecp6COHZpi_D3aNK8vXVNHsA4v7_MG/exec"; // Replace with your Web App URL
 
         function checkGuest() {
@@ -302,7 +217,179 @@
                 }
             });
         }
-    </script>
+    </script>-->
+    
+        <script>
+    const API_URL = "https://script.google.com/macros/s/AKfycbz430PHlD3YLgPiBrI7Rbn14rQJ0P0oQstaWPyWTk_2uakxshiNdmL7U6Mc-H08nlM-6g/exec"; // Replace with your actual Google Apps Script Web App URL
+    
+    let currentGroupData = []; // Will store all rows for the found group
+    
+    // 1) Search for Grupo in Google Sheets
+    function searchGrupo() {
+      const grupoVal = document.getElementById("grupoInput").value.trim();
+      if (!grupoVal) {
+        document.getElementById("errorMsg").innerText = "Por favor, ingrese un código de grupo.";
+        return;
+      }
+      
+      fetch(`${API_URL}?grupo=${grupoVal}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.error) {
+            /*document.getElementById("errorMsg").innerText = data.error;*/
+            swal.fire({
+                        title: "¡Lo sentimos!",
+                        text: "No se encontró ningún registro de ese nombre o código.",
+                        type: "error",
+                        confirmButtonText: "OK",
+                        });
+            document.getElementById("guestList").classList.add("hidden");
+            document.getElementById("reviewSection").classList.add("hidden");
+          } else {
+            // We have data!
+            document.getElementById("errorMsg").innerText = "";
+            currentGroupData = data.data; // Array of rows
+            
+            document.getElementById("grupoNumber").innerText = grupoVal;
+            renderGuestList();
+          }
+        })
+        .catch(err => {
+          document.getElementById("errorMsg").innerText = "Error fetching data.";
+          console.error(err);
+        });
+    }
+    
+    // 2) Render the list of guests
+    function renderGuestList() {
+      const guestListDiv = document.getElementById("guestList");
+      const guestsContainer = document.getElementById("guestsContainer");
+      guestsContainer.innerHTML = "";
+      
+      currentGroupData.forEach((row, index) => {
+        const rowDiv = document.createElement("div");
+        rowDiv.classList.add("guest-row");
+        
+        // Show the "Nombre completo"
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = row.nombreCompleto;
+        
+        // Radio group: Menú convencional (default), Menú Vegetariano, No asistiré
+        const radioGroupDiv = document.createElement("div");
+        radioGroupDiv.classList.add("checkbox-group");
+        
+        // Create each radio option
+        const options = ["Menú convencional", "Menú Vegetariano", "No asistiré"];
+        options.forEach(option => {
+          const label = document.createElement("label");
+          const radio = document.createElement("input");
+          radio.type = "radio";
+          radio.name = `status_${index}`; // group by index
+          radio.value = option;
+          
+          // Default to "Menú convencional"
+          if (option === "Menú convencional") {
+            radio.checked = true;
+          }
+          
+          label.appendChild(radio);
+          label.appendChild(document.createTextNode(option));
+          radioGroupDiv.appendChild(label);
+        });
+        
+        rowDiv.appendChild(nameSpan);
+        rowDiv.appendChild(radioGroupDiv);
+        guestsContainer.appendChild(rowDiv);
+      });
+      
+      guestListDiv.classList.remove("hidden");
+      document.getElementById("reviewSection").classList.add("hidden");
+    }
+    
+    // 3) Go to review step
+    function goToReview() {
+      // Collect the current selection for each guest
+      const guestsContainer = document.getElementById("guestsContainer");
+      const guestRows = guestsContainer.getElementsByClassName("guest-row");
+      
+      for (let i = 0; i < guestRows.length; i++) {
+        const row = guestRows[i];
+        const radios = row.querySelectorAll("input[type='radio']");
+        let selectedValue = "Menú convencional"; // default
+        radios.forEach(radio => {
+          if (radio.checked) {
+            selectedValue = radio.value;
+          }
+        });
+        currentGroupData[i].selectedStatus = selectedValue;
+      }
+      
+      // Show the review
+      const reviewSection = document.getElementById("reviewSection");
+      const reviewContainer = document.getElementById("reviewContainer");
+      reviewContainer.innerHTML = "";
+      
+      currentGroupData.forEach(item => {
+        const p = document.createElement("p");
+        p.textContent = `${item.nombreCompleto} → ${item.selectedStatus}`;
+        reviewContainer.appendChild(p);
+      });
+      
+      reviewSection.classList.remove("hidden");
+    }
+    
+    // 4) Submit confirmation to Google Sheets
+    function submitConfirmation() {
+      // Collect the final status + message
+      const mensajeGeneral = document.getElementById("mensajeGeneral").value.trim();
+      
+      // Prepare the data for doPost
+      // We'll send an array of objects: {rowIndex, status}
+      const updatesArray = currentGroupData.map(item => {
+        return {
+          rowIndex: item.rowIndex,
+          status: item.selectedStatus
+        };
+      });
+      
+      const formData = new URLSearchParams();
+      formData.append("updates", JSON.stringify(updatesArray));
+      formData.append("mensajeGeneral", mensajeGeneral);
+      
+      fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          /*alert("¡Confirmación exitosa!");*/
+          swal.fire({
+                    title: "Confirmación de asistencia exitosa!",
+                    text: "Muchas gracias por confirmar!",
+                    type: "success",
+                    confirmButtonText: "OK",
+                    })
+          // Optionally reset or hide forms
+          /*location.reload();*/
+        } else {
+          alert("Error al confirmar: " + data.error);
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Error al enviar la confirmación.");
+      });
+    }
+    
+
+  </script>
+
+
+   
+
+    
     <script src="./jquery.js.descarga"></script>
     <script src="./bootstrap.min(1).js.descarga"></script>
     <script src="./82d3907e47.js.descarga" crossorigin="anonymous"></script>
