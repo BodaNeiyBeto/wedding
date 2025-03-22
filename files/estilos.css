@@ -355,7 +355,7 @@ textarea {
     }
     .card {
         height: 900px !important;
-        width: 400px !important;
+        width: 500px !important;
         left: 0 !important;
         right: 0 !important;
     }
@@ -425,7 +425,7 @@ body {
 .card {
     background-color: var(--card-bg-color) !important;
     width: 50vw;
-    height: 700px;
+    height: 900px;
     border-radius: 0px;
     border-color: var(--card-border-color);
     border-width: var(--card-border-width);
@@ -438,9 +438,9 @@ body {
     margin: auto;
     /*this to solve "the content will not be cut when the window is smaller than the content": */
     max-width: 100%;
-    max-height: 105%;
+    max-height: 100%;
     overflow: hidden;
-    padding: 2%;
+    padding: 0%;
 }
 
 @media (max-width: 991px) and (min-width: 481px) { 
