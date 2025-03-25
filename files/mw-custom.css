@@ -1848,6 +1848,9 @@ iframe {
   bottom: 0px;
   left: 0px;
   z-index: 11;
+  max-width: 90%;
+  height: auto;
+  display: block;
 }
 
 .pre-page .right-graph {
@@ -1855,6 +1858,9 @@ iframe {
   top: 0px;
   right: 0px;
   z-index: 11;
+  max-width: 90%;
+  height: auto;
+  display: block;
 }
 
 .stamp {
@@ -1904,15 +1910,18 @@ iframe {
   .pre-page {
     display: flex;
     justify-content: center;
+    max-width: 100%;
+    height: auto;
+    display: block;
   }
-  .pre-page .right-graph {
-    content: url(../images/mw-welcome-graph-m-right.svg);
+/*  .pre-page .right-graph {
+    content: url(&quot;./mw-welcome-graph-m-left.svg&quot;);
     height: 50vh;
   }
   .pre-page .left-graph {
-    content: url(../images/mw-welcome-graph-m-left.svg);
+    content: url(../mw-welcome-graph-m-left.svg);
     height: 50vh;
-  }
+  }*/
   #env_top, #env_bottom {
     height: 35vh;
     width: 100%;
