@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery Carousel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Owl Carousel CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    /* Ensure each carousel item has a fixed height and overflows are hidden */
+    .owl-carousel .item {
+      height: 500px; /* Adjust the height as needed */
+      overflow: hidden;
+    }
+    /* Make images cover the container regardless of orientation */
+    .owl-carousel .item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.9);
+    }
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Owl Carousel Container -->
+  <div class="owl-carousel owl-theme">
+    <div class="item"><img src="f0.jpg" alt="Image 1"></div>
+    <div class="item"><img src="f1.jpg" alt="Image 1"></div>
+   <!-- <div class="item"><img src="f2.jpg" alt="Image 2"></div>-->
+    <div class="item"><img src="f3.jpg" alt="Image 3"></div>
+    <div class="item"><img src="f4.jpg" alt="Image 4"></div>
+    <div class="item"><img src="f5.jpg" alt="Image 5"></div>
+    <div class="item"><img src="f6.jpg" alt="Image 6"></div>
+    <div class="item"><img src="f7.jpg" alt="Image 7"></div>
+    <div class="item"><img src="f8.jpg" alt="Image 8"></div>
+    <!--<div class="item"><img src="f9.jpg" alt="Image 9"></div>-->
+    <div class="item"><img src="f10.jpg" alt="Image 10"></div>
+    <div class="item"><img src="f11.jpg" alt="Image 11"></div>
+    <div class="item"><img src="f12.jpg" alt="Image 12"></div>
+    <div class="item"><img src="f13.jpg" alt="Image 13"></div>
+    <div class="item"><img src="f14.jpg" alt="Image 14"></div>
+    <div class="item"><img src="f15.jpg" alt="Image 15"></div>
+  </div>
+  
+  <!-- Modal for full image view -->
+  <div id="modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+  
+  <!-- jQuery and Owl Carousel JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  
+  <script>
+    $(document).ready(function(){
+      $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        autoplay: true,                // Auto-play enabled
+        autoplayTimeout: 3000,           // Slide every 3 seconds
+        autoplayHoverPause: true,        // Pause on hover
+        responsive:{
+          0: { items: 1 },
+          600: { items: 3 },
+          1000: { items: 5 }
+        }
+      });
+      
+      // Open modal with full image when any carousel image is clicked
+      $('.owl-carousel .item img').on('click', function(){
+        var src = $(this).attr('src');
+        $('#modalImage').attr('src', src);
+        $('#modal').fadeIn();
+      });
+      
+      // Close modal when clicking the close button
+      $('.close').on('click', function(){
+        $('#modal').fadeOut();
+      });
+      
+      // Also close modal when clicking outside the image
+      $('#modal').on('click', function(e){
+        if (e.target.id == 'modal') {
+          $('#modal').fadeOut();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
