@@ -653,7 +653,14 @@
             stickIt($(".sticky-2"), "sticky-on", 300);
         }
     });
+    
     window.onscroll = function() {myFunction()};
+    
+    $(document).ready(function () {
+    $(".navbar-toggler").on("click", function () {
+      header.classList.add("sticky-header");
+    });
+    });
 
     var header = document.getElementById("myHeader");
     var sticky = header.offsetTop;
