@@ -257,12 +257,60 @@
           }
         })
         .catch(err => {
-          document.getElementById("errorMsg").innerText = "Error fetching data.";
+          document.getElementById("errorMsg").innerText = "";
           console.error(err);
         });
     }
     
     // 2) Render the list of guests
+    function renderGuestList() {
+        const guestListDiv = document.getElementById("guestList");
+        const guestsContainer = document.getElementById("guestsContainer");
+        guestsContainer.innerHTML = "";
+      
+        // Create table and header
+        const table = document.createElement("table");
+        table.style.width = "100%";
+        table.style.borderCollapse = "collapse";
+        table.border = "1";
+      
+        const thead = document.createElement("thead");
+        const headerRow = document.createElement("tr");
+      
+        const nameHeader = document.createElement("th");
+        nameHeader.textContent = "Nombre Completo";
+        const mesaHeader = document.createElement("th");
+        mesaHeader.textContent = "Mesa";
+      
+        headerRow.appendChild(nameHeader);
+        headerRow.appendChild(mesaHeader);
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+      
+        const tbody = document.createElement("tbody");
+      
+        currentGroupData.forEach((row, index) => {
+          const tr = document.createElement("tr");
+      
+          const nameCell = document.createElement("td");
+          nameCell.textContent = row.nombreCompleto;
+      
+          const mesaCell = document.createElement("td");
+          mesaCell.textContent = row.mesa;
+      
+          tr.appendChild(nameCell);
+          tr.appendChild(mesaCell);
+          tbody.appendChild(tr);
+        });
+      
+        table.appendChild(tbody);
+        guestsContainer.appendChild(table);
+      
+        guestListDiv.classList.remove("hidden");
+        document.getElementById("reviewSection").classList.add("hidden");
+      }
+    
+    /*
     function renderGuestList() {
       const guestListDiv = document.getElementById("guestList");
       const guestsContainer = document.getElementById("guestsContainer");
@@ -281,7 +329,7 @@
         tabSpan.textContent = row.mesa;
 
         
-        /*
+        
         // Radio group: Menú convencional (default), Menú Vegetariano, No asistiré
         const radioGroupDiv = document.createElement("div");
         radioGroupDiv.classList.add("checkbox-group");
@@ -304,7 +352,7 @@
           label.appendChild(document.createTextNode(option));
           radioGroupDiv.appendChild(label);
         });
-        */
+        
         
         rowDiv.appendChild(nameSpan);
         rowDiv.appendChild(tabSpan);
@@ -314,6 +362,7 @@
       guestListDiv.classList.remove("hidden");
       document.getElementById("reviewSection").classList.add("hidden");
     }
+    */
     
     // 3) Go to review step
     function goToReview() {
