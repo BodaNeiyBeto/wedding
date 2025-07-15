@@ -47,9 +47,9 @@
       
 
       <form id="formConfirmacion" name="formConfirmacion" ng-show="formVisibility == &#39;0&#39;" class="fade code-input ng-pristine ng-invalid ng-invalid-required">
-        <div class="card-header" align="center">Confirmación de Invitados</div>
+        <div class="card-header" align="center">Encuentra tu mesa</div>
         <br>
-        <div class="card-instruction-lg" align="center">Para confirmar tu asistencia, ingresa tu código de invitado<br>y da clic en buscar.</div>
+        <div class="card-instruction-lg" align="center">Para buscar el n&uacute;mero de tu mesa, ingresa tu código de invitado<br>y da clic en buscar.</div>
         <br>
         <div class="card-body col-md-12" align="center">
           <input type="text" id="grupoInput" placeholder="código..." ng-model="data.Nombre" ng-change="changeActive(0)" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"/>
@@ -69,7 +69,7 @@
         <div class="mobile-wrap" style="display: flex; justify-content: space-evenly">
         <div id="guestList"  class="hidden">
 
-          <p>Su código es <span id="grupoNumber"></span>. Por favor, indica quiénes asistirán y qué menú prefieren:</p>
+          <p>Tu código es <span id="grupoNumber"></span>. Agradecemos mucho tu asistencia, tu n&uacute;mero de mesa es:</p>
           
               <div class="row col-md-12">
                     <div id="guestsContainer"></div>
@@ -82,11 +82,13 @@
     
         <div class="card-footer row col-md-12">
           <button type="submit" id="btnBack" class="btn btn-primary" ng-click="cambiar(0, &#39;b&#39;)">Regresar</button>
+           <!--
           <button type="submit" id="btnResumen" class="btn btn-primary mobile-top-10"  onclick="goToReview()" ng-click="cambiar(2, &#39;f&#39;)">Continuar</button>
+          -->
         </div>
       </form>
       
-      
+      <!--
       <form id="formConfirmacion" name="formConfirmacion" ng-show="formVisibility == &#39;2&#39;" class="fade mobile-800-h ng-pristine ng-valid ng-hide">
         <div class="card-header" align="center">Corrobore su asistencia</div>
         <div class="mobile-wrap" style="display: flex; justify-content: space-evenly">
@@ -105,7 +107,7 @@
         </div>
         
       </form>
-
+-->
       
        </div>
       
@@ -274,6 +276,12 @@
         const nameSpan = document.createElement("span");
         nameSpan.textContent = row.nombreCompleto;
         
+        // Show the "Nombre completo"
+        const tabSpan = document.createElement("span");
+        tabSpan.textContent = row.mesa;
+
+        
+        /*
         // Radio group: Menú convencional (default), Menú Vegetariano, No asistiré
         const radioGroupDiv = document.createElement("div");
         radioGroupDiv.classList.add("checkbox-group");
@@ -296,9 +304,10 @@
           label.appendChild(document.createTextNode(option));
           radioGroupDiv.appendChild(label);
         });
+        */
         
         rowDiv.appendChild(nameSpan);
-        rowDiv.appendChild(radioGroupDiv);
+        rowDiv.appendChild(tabSpan);
         guestsContainer.appendChild(rowDiv);
       });
       
